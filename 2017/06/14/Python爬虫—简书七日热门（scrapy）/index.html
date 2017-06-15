@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Liang" />
+  <meta name="keywords" content="Python,requests,scrapy," />
 
 
 
@@ -96,6 +96,7 @@
 
 
 <meta name="description" content="简书七日热门的数据，主要爬取了以下几个字段：  1.用户2.标题3.阅读量4.评论量5.获赞量6.打赏数7.文章发表时间8.被哪些专题收录   首先我们可以先看一下我们要获取字段的位置  框中的其他数据都可以通过xpath获取到，标注箭头的为我在当前页面通过xpath获取不到的或者出现问题的，不过别着急，二级页面中包含我们想要的所有数据。  从这个页面我们可以看到，在第一级页面中的数据，在这一页都">
+<meta name="keywords" content="Python,requests,scrapy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬虫—简书七日热门（scrapy）">
 <meta property="og:url" content="https://sincerely90.github.io/2017/06/14/Python爬虫—简书七日热门（scrapy）/index.html">
@@ -112,7 +113,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5208064-95a9795f83a0df1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5208064-7f46dc36aef1ca7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5208064-b3efbae7e3b18775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-15T06:00:51.456Z">
+<meta property="og:updated_time" content="2017-06-15T12:49:51.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬虫—简书七日热门（scrapy）">
 <meta name="twitter:description" content="简书七日热门的数据，主要爬取了以下几个字段：  1.用户2.标题3.阅读量4.评论量5.获赞量6.打赏数7.文章发表时间8.被哪些专题收录   首先我们可以先看一下我们要获取字段的位置  框中的其他数据都可以通过xpath获取到，标注箭头的为我在当前页面通过xpath获取不到的或者出现问题的，不过别着急，二级页面中包含我们想要的所有数据。  从这个页面我们可以看到，在第一级页面中的数据，在这一页都">
@@ -222,6 +223,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
@@ -238,6 +249,16 @@
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -354,6 +375,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -465,6 +508,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/requests/" rel="tag"># requests</a>
+          
+            <a href="/tags/scrapy/" rel="tag"># scrapy</a>
+          
+        </div>
+      
 
       
       
@@ -569,7 +622,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
