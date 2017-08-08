@@ -1,28 +1,432 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Loading_miracle</title>
-  <subtitle>Life is short, I need Python!</subtitle>
-  <link href="/atom.xml" rel="self"/>
+<!doctype html>
+
+
+
   
-  <link href="https://sincerely90.github.io/"/>
-  <updated>2017-08-08T13:29:09.678Z</updated>
-  <id>https://sincerely90.github.io/</id>
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-  <author>
-    <name>Liang</name>
-    <email>fengshengjie5@live.com</email>
-  </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
   
-  <entry>
-    <title>爬取学校贴吧150个帖子，统计词频，简单数据分析</title>
-    <link href="https://sincerely90.github.io/2017/08/08/tieba/"/>
-    <id>https://sincerely90.github.io/2017/08/08/tieba/</id>
-    <published>2017-08-08T13:27:44.294Z</published>
-    <updated>2017-08-08T13:29:09.678Z</updated>
+  
+  
+  
+
+  
     
-    <content type="html"><![CDATA[<h1 id="爬取学校贴吧150个帖子，统计词频，简单数据分析"><a href="#爬取学校贴吧150个帖子，统计词频，简单数据分析" class="headerlink" title="爬取学校贴吧150个帖子，统计词频，简单数据分析"></a>爬取学校贴吧150个帖子，统计词频，简单数据分析</h1><h2 id="一、数据采集目标站点：百度贴吧"><a href="#一、数据采集目标站点：百度贴吧" class="headerlink" title="一、数据采集目标站点：百度贴吧"></a>一、数据采集目标站点：百度贴吧</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</div><div class="line"><span class="keyword">import</span> re</div><div class="line">headers = &#123;</div><div class="line">    <span class="string">"user-agent"</span>: <span class="string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"</span>,</div><div class="line">&#125;</div><div class="line">detail = []</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">titleAndurls</span><span class="params">(url)</span>:</span></div><div class="line">    html = requests.get(url,headers=headers)</div><div class="line">    urls = re.findall(<span class="string">r'href="(/p/.+?)"'</span>, html.text)</div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        getDetail(<span class="string">'http://tieba.baidu.com'</span>+url)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDetail</span><span class="params">(url)</span>:</span></div><div class="line">    html = requests.get(url, headers=headers)</div><div class="line">    firstFloor = re.findall(<span class="string">r'class="d_post_content j_d_post_content  clearfix"&gt;(.*?)&lt;'</span>,html.text,re.S)</div><div class="line">    detail.append(firstFloor)</div><div class="line">    print(firstFloor[<span class="number">0</span>].strip())</div><div class="line">    <span class="comment"># with open('question.txt','a+',encoding='utf-8') as f:</span></div><div class="line">    <span class="comment">#     f.write(firstFloor.strip()+'\n')</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    urls = [<span class="string">'http://tieba.baidu.com/f?kw=%E5%8D%97%E9%98%B3%E7%90%86%E5%B7%A5%E5%AD%A6%E9%99%A2&amp;ie=utf-8&amp;pn=&#123;&#125;'</span>.format(i*<span class="number">50</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>)]</div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        titleAndurls(url)</div></pre></td></tr></table></figure>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,requests,jieba," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Loading_miracle" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="爬取学校贴吧150个帖子，统计词频，简单数据分析一、数据采集目标站点：百度贴吧123456789101112131415161718192021222324import requestsfrom lxml import etreeimport reheaders = &amp;#123;    &quot;user-agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebK">
+<meta name="keywords" content="Python,requests,jieba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬取学校贴吧150个帖子，统计词频，简单数据分析">
+<meta property="og:url" content="https://sincerely90.github.io/2017/08/08/tieba/index.html">
+<meta property="og:site_name" content="Loading_miracle">
+<meta property="og:description" content="爬取学校贴吧150个帖子，统计词频，简单数据分析一、数据采集目标站点：百度贴吧123456789101112131415161718192021222324import requestsfrom lxml import etreeimport reheaders = &amp;#123;    &quot;user-agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebK">
+<meta property="og:image" content="attachment:image.png">
+<meta property="og:updated_time" content="2017-08-08T13:29:09.678Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬取学校贴吧150个帖子，统计词频，简单数据分析">
+<meta name="twitter:description" content="爬取学校贴吧150个帖子，统计词频，简单数据分析一、数据采集目标站点：百度贴吧123456789101112131415161718192021222324import requestsfrom lxml import etreeimport reheaders = &amp;#123;    &quot;user-agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebK">
+<meta name="twitter:image" content="attachment:image.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sincerely90.github.io/2017/08/08/tieba/"/>
+
+
+
+
+
+  <title>爬取学校贴吧150个帖子，统计词频，简单数据分析 | Loading_miracle</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Loading_miracle</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Life is short, I need Python!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://sincerely90.github.io/2017/08/08/tieba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/personal/tuxiang.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Loading_miracle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">爬取学校贴吧150个帖子，统计词频，简单数据分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T21:27:44+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/08/08/tieba/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="爬取学校贴吧150个帖子，统计词频，简单数据分析"><a href="#爬取学校贴吧150个帖子，统计词频，简单数据分析" class="headerlink" title="爬取学校贴吧150个帖子，统计词频，简单数据分析"></a>爬取学校贴吧150个帖子，统计词频，简单数据分析</h1><h2 id="一、数据采集目标站点：百度贴吧"><a href="#一、数据采集目标站点：百度贴吧" class="headerlink" title="一、数据采集目标站点：百度贴吧"></a>一、数据采集目标站点：百度贴吧</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</div><div class="line"><span class="keyword">import</span> re</div><div class="line">headers = &#123;</div><div class="line">    <span class="string">"user-agent"</span>: <span class="string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"</span>,</div><div class="line">&#125;</div><div class="line">detail = []</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">titleAndurls</span><span class="params">(url)</span>:</span></div><div class="line">    html = requests.get(url,headers=headers)</div><div class="line">    urls = re.findall(<span class="string">r'href="(/p/.+?)"'</span>, html.text)</div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        getDetail(<span class="string">'http://tieba.baidu.com'</span>+url)</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDetail</span><span class="params">(url)</span>:</span></div><div class="line">    html = requests.get(url, headers=headers)</div><div class="line">    firstFloor = re.findall(<span class="string">r'class="d_post_content j_d_post_content  clearfix"&gt;(.*?)&lt;'</span>,html.text,re.S)</div><div class="line">    detail.append(firstFloor)</div><div class="line">    print(firstFloor[<span class="number">0</span>].strip())</div><div class="line">    <span class="comment"># with open('question.txt','a+',encoding='utf-8') as f:</span></div><div class="line">    <span class="comment">#     f.write(firstFloor.strip()+'\n')</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    urls = [<span class="string">'http://tieba.baidu.com/f?kw=%E5%8D%97%E9%98%B3%E7%90%86%E5%B7%A5%E5%AD%A6%E9%99%A2&amp;ie=utf-8&amp;pn=&#123;&#125;'</span>.format(i*<span class="number">50</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>)]</div><div class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</div><div class="line">        titleAndurls(url)</div></pre></td></tr></table></figure>
 <pre><code>床多大啊，，，，谁知道
 请问是不是住上铺，下面那个两联柜子可以自己使用?柜子一般怎么分配?
 我是男的，不要把我当成学姐了
@@ -379,249 +783,767 @@
 
 <p><img src="attachment:image.png" alt="词云图"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-]]></content>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持经验、技术分享，您的鼓励是我最大的动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/personal/wechat.png" alt="Liang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/personal/alipay.jpg" alt="Liang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/requests/" rel="tag"># requests</a>
+          
+            <a href="/tags/jieba/" rel="tag"># jieba</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/29/锋芒/" rel="next" title="锋芒工作室2017迎新">
+                <i class="fa fa-chevron-left"></i> 锋芒工作室2017迎新
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
-    <summary type="html">
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
-      &lt;h1 id=&quot;爬取学校贴吧150个帖子，统计词频，简单数据分析&quot;&gt;&lt;a href=&quot;#爬取学校贴吧150个帖子，统计词频，简单数据分析&quot; class=&quot;headerlink&quot; title=&quot;爬取学校贴吧150个帖子，统计词频，简单数据分析&quot;&gt;&lt;/a&gt;爬取学校贴吧150个帖子，统
-    
-    </summary>
-    
-      <category term="Python爬虫" scheme="https://sincerely90.github.io/categories/Python%E7%88%AC%E8%99%AB/"/>
-    
-    
-      <category term="Python" scheme="https://sincerely90.github.io/tags/Python/"/>
-    
-      <category term="requests" scheme="https://sincerely90.github.io/tags/requests/"/>
-    
-      <category term="jieba" scheme="https://sincerely90.github.io/tags/jieba/"/>
-    
-  </entry>
+  </div>
+
+
+        </div>
+        
+          
   
-  <entry>
-    <title>锋芒工作室2017迎新</title>
-    <link href="https://sincerely90.github.io/2017/07/29/%E9%94%8B%E8%8A%92/"/>
-    <id>https://sincerely90.github.io/2017/07/29/锋芒/</id>
-    <published>2017-07-29T13:40:31.473Z</published>
-    <updated>2017-07-29T13:49:15.539Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/5208064-80d4dce47b7bc3c4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="锋芒工作室"></p>
-<h2 id="一、锋芒工作室简介"><a href="#一、锋芒工作室简介" class="headerlink" title="一、锋芒工作室简介"></a>一、锋芒工作室简介</h2><ul>
-<li><strong>简介：</strong>锋芒工作室成立于2013年，前身是于2011年成立的锋芒团队。锋芒工作室自成立以来，在移动教研室张政老师的带领下，以“敢想，敢做，分享，创新”的发展宗旨带领着一届又一届的莘莘学子。社团成员团结协作，和谐相处，积极参加各项比赛活动，共同发展进步，在各个方面都取得了不错的成绩、历届学长现就职于航天科技集团第803研究所丶IBM等知名大公司。</li>
-<li><strong>锋芒口号：</strong>“锋芒至此，谁能挡我”，寓意：锋芒一往直前，追求目标不会因为任何困难而受到阻碍。</li>
-<li><strong>主要学习及研究方向：</strong>云计算、大数据、数据分析、web前端、嵌入式</li>
-</ul>
-<hr>
-<h2 id="二、专业介绍"><a href="#二、专业介绍" class="headerlink" title="二、专业介绍"></a>二、专业介绍</h2><ul>
-<li><strong>1）云计算和大数据</strong></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-e61e7efae1a1a538.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="云计算和大数据"></p>
-<p>这两个可以放在一块来说，主要是很多人都会对这两个概念有误解而且也会把它们混起来说，分别做一句话直白解释就是：云计算就是硬件资源的虚拟化;大数据就是海量数据的高效处理。<br>如果在仔细的分析的话就是：云计算相当于我们的计算机和操作系统，将大量的硬件资源虚拟化之后再进行分配使用，在云计算领域目前的老大应该算是Amazon，可以说为云计算提供了商业化的标准，另外值得关注的还有VMware(其实从这一点可以帮助你理解云计算和虚拟化的关系)，开源的云平台最有活力的就是Openstack了;大数据相当于海量数据的“数据库”，而且通观大数据领域的发展也能看出，当前的大数据处理一直在向着近似于传统数据库体验的方向发展，Hadoop的产生使我们能够用普通机器建立稳定的处理TB级数据的集群，把传统而昂贵的并行计算等概念一下就拉到了我们的面前。<br>整体来看的话，未来的趋势是，云计算作为计算资源的底层，支撑着上层的大数据处理，而大数据的发展趋势是，实时交互式的查询效率和分析能力，借用Google一篇技术论文中的话，“动一下鼠标就可以在秒级操作PB级别的数据”难道不让人兴奋吗?</p>
-<blockquote>
-<p>（简单科普一下：1KB=1024B<br>　　1MB=1024KB<br>　　1GB=1024MB<br>　　1TB=1024GB<br>　　1PB=1024TB<br>　　1EB=1024PB<br>　　1ZB=1024EB<br>　　1YB=1024ZB）<br>注意之前提到的秒级实现PB级的计算操作，PB级数据何其庞大。</p>
-</blockquote>
-<ul>
-<li><strong>2）数据分析</strong>（两个案例均为学习实践）<br>数据分析是指用适当的统计分析方法对收集来的大量数据进行分析，提取有用信息和形成结论而对数据加以详细研究和概括总结的过程。这一过程也是质量管理体系的支持过程。在实用中，数据分析可帮助人们作出判断，以便采取适当行动。<br>其实，数据分析就在我们的生活当中，大家都使用过的Excel工具就是常用的工具之一，可以实现基本的分析工作。<br>随着长时间的学习，接触到的工具和方法会越来越多，可以看一下我在学习编程语言python时对python的两个职位进行的一个简单分析，数据来源<br>拉钩网（招聘网站）地址：<a href="http://www.jianshu.com/p/e7e6ef21a79f" target="_blank" rel="external">http://www.jianshu.com/p/e7e6ef21a79f</a></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-364559f51f04d4d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="学历要求"></p>
-<p>还有我们采集了不同编程语言相关的职位进行的简单的处理分析,还对职位、薪资进行了比较，有兴趣可以看一下：<a href="http://139.199.172.91/software/language" target="_blank" rel="external">http://139.199.172.91/software/language</a><br><img src="http://upload-images.jianshu.io/upload_images/5208064-2dac6f811803b79c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编程语言"></p>
-<ul>
-<li><strong>3）web前端</strong><br>Web前端开发工程师，主要职责是利用(X)HTML/CSS/JavaScript/Flash等各种Web技术进行客户端产品的开发。完成客户端程序（也就是浏览器端）的开发，开发JavaScript以及Flash模块，同时结合后台开发技术模拟整体效果，进行丰富互联网的Web开发，致力于通过技术改善用户体验。<br>大家平时在浏览网页时，是不是都感觉人家网站的页面设计挺洋气，其实，只要你认真学习，你整出来的可以比他们那些更洋气<br>之前的数据分析展示的web用到就有前端知识，不知道大家有没有过学校的校园导航（进入学校官网便可看到）地址：<a href="http://soft-bysj.nyist.net/fm360/" target="_blank" rel="external">校园导航</a><br>这个版本是之前的老学长他们做的，现在有的路线上边可能没有，我们今年又整理新版校园导航更新了路线（初次打开可能比较慢）：<a href="http://139.199.31.146/" target="_blank" rel="external">新版导航</a><br><img src="http://upload-images.jianshu.io/upload_images/5208064-d3c3fc28bdc89e2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-<li><strong>4）嵌入式</strong><br>IEEE（Institute of Electrical and Electronics Engineers，美国电气和电子工程师协会）对嵌入式系统的定义：“用于控制、监视或者辅助操作机器和设备的装置”<br>嵌入式系统是一种专用的计算机系统，作为装置或设备的一部分。通常，嵌入式系统是一个控制程序存储在ROM中的嵌入式处理器控制板。事实上，所有带有数字接口的设备，如手表、微波炉、录像机、汽车等，都使用嵌入式系统，有些嵌入式系统还包含操作系统，但大多数嵌入式系统都是由单个程序实现整个控制逻辑。<br>从应用对象上加以定义，嵌入式系统是软件和硬件的综合体，还可以涵盖机械等附属装置。国内普遍认同的嵌入式系统定义为：以应用为中心，以计算机技术为基础，软硬件可裁剪，适应应用系统对功能、可靠性、成本、体积、功耗等严格要求的专用计算机系统。<br><strong>前几届学长自主学习研发智能小汽车，拐杖导盲犬</strong></li>
-</ul>
-<h2 id="三、社团活动"><a href="#三、社团活动" class="headerlink" title="三、社团活动"></a>三、社团活动</h2><p>每一年社团都会组织很多有趣的活动，下面我就简单列举几个：</p>
-<ul>
-<li>1.新生培训</li>
-<li>2.冬至包饺子</li>
-<li>3.春季烧烤</li>
-<li>4.各个社团的间的交流以及编程竞赛</li>
-</ul>
-<p>总之，你能想到的我们都会尽可能去组织，丰富社员的大学生活。</p>
-<h2 id="四、你的大学"><a href="#四、你的大学" class="headerlink" title="四、你的大学"></a>四、你的大学</h2><p><strong>你们可能会问为什么标题命名为你的大学，其实就是这样，这个就是你自己的大学，属于我们自己的，需要我们自己来规划和安排，如果你想过一个愉快而又充实的大学生活的话，那么就来锋芒吧，你还在犹豫什么呢？</strong></p>
-<h2 id="五、联系我们"><a href="#五、联系我们" class="headerlink" title="五、联系我们"></a>五、联系我们</h2><p><img src="http://upload-images.jianshu.io/upload_images/5208064-c96bafc46a15bc7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="We are family"></p>
-<p>群连接：点击链接加入群【锋芒工作室2017迎新群】：<a href="https://jq.qq.com/?_wv=1027&amp;k=4EiNJyS" target="_blank" rel="external">https://jq.qq.com/?_wv=1027&amp;k=4EiNJyS</a><br>我的QQ：946439674<br>QQ群：663280466</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/5208064-80d4dce47b7bc3c4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-    
-  </entry>
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/personal/tuxiang.jpeg"
+               alt="Liang" />
+          <p class="site-author-name" itemprop="name">Liang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Life is short, I need Python!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sincerely90" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/a987b338c373" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-heartbeat"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#爬取学校贴吧150个帖子，统计词频，简单数据分析"><span class="nav-number">1.</span> <span class="nav-text">爬取学校贴吧150个帖子，统计词频，简单数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、数据采集目标站点：百度贴吧"><span class="nav-number">1.1.</span> <span class="nav-text">一、数据采集目标站点：百度贴吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、分词统计词频-jieba"><span class="nav-number">1.2.</span> <span class="nav-text">二、分词统计词频(jieba)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、导入pandas和pyecharts进行数据分析处理和绘图"><span class="nav-number">1.3.</span> <span class="nav-text">三、导入pandas和pyecharts进行数据分析处理和绘图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  <entry>
-    <title>Python爬虫—简书首页数据抓取</title>
-    <link href="https://sincerely90.github.io/2017/06/17/%E7%AE%80%E4%B9%A6%E9%A6%96%E9%A1%B5/"/>
-    <id>https://sincerely90.github.io/2017/06/17/简书首页/</id>
-    <published>2017-06-17T03:34:04.365Z</published>
-    <updated>2017-06-17T03:34:04.475Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/5208064-3e521f5711ce6c11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简书"></p>
-<p>本该昨天完成的文章，拖了一天。可能是没休息好吧，昨天的在思路以及代码处理上存在很多问题，废话不多说，我们一起来看一下<strong>简书首页</strong>数据的抓取。</p>
-<h3 id="抓取的信息"><a href="#抓取的信息" class="headerlink" title="抓取的信息"></a>抓取的信息</h3><blockquote>
-<p>2.2）简书首页文章信息 <a href="http://www.jianshu.com/" target="_blank" rel="external">http://www.jianshu.com/</a><br>包括：标题，作者，发表时间，阅读量，评论数，点赞数，打赏数，所投专题</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-8b3a4c544228e8c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字段位置"></p>
-<h3 id="单页数据的获取"><a href="#单页数据的获取" class="headerlink" title="单页数据的获取"></a>单页数据的获取</h3><p>我们先简单看一下单页数据的抓取，所谓单页就是我们最少能获取到的数据，那么我们就先去看一下这些信息的的加载方式</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-e22dd629bf2f6a3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="检查工具"><br>通过工具我们可以看到有一个请求连接，接着我们去看一下数据</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-a668c79e25d2e467.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="信息详情"><br>这些信息跟我们要抓取的没任何关系，那我们就可以直接从源码中找这些信息了</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-8781d4bf9423bca9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"><br>通过分析我们看到每一个<strong>li</strong>标签包含我们要抓取的所有信息的信息，那就可以以这个为循环点，解析第一个页面（xpath，或者通过Beautifulsoup），这里我选择的是xpath，我遇到了一个问题，就是评论数和阅读量通过xpath抓不到（可能是路径问题），我是通过正则去获取了这两个信息，下面给部分单页信息获取源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">def getData(self,url):</div><div class="line">    print url</div><div class="line">    html = requests.get(url,headers = self.headers,cookies = self.cookies).text</div><div class="line">    response = etree.HTML(html)</div><div class="line">    item = &#123;&#125;</div><div class="line">    flag = 0</div><div class="line">    read = re.findall(r&apos;ic-list-read&quot;&gt;&lt;/i&gt; (\d+)&apos;, html)</div><div class="line">    comment = re.findall(r&apos;ic-list-comments&quot;&gt;&lt;/i&gt; (\d+)&apos;, html)</div><div class="line">    result = response.xpath(&apos;//*[@id=&quot;list-container&quot;]/ul/li/div&apos;)</div><div class="line">    for one in result:</div><div class="line">        item[1] = one.xpath(&apos;a/text()&apos;)[0]</div><div class="line">        item[2] = one.xpath(&apos;div[1]/div/a/text()&apos;)[0]</div><div class="line">        item[3] = one.xpath(&apos;div[1]/div/span/@data-shared-at&apos;)[0]</div><div class="line">        item[4] = read[flag]</div><div class="line">        try:</div><div class="line">            item[5] = comment[flag]</div><div class="line">        except:</div><div class="line">            item[5] = u&apos;&apos;</div><div class="line">        item[6] = one.xpath(&apos;div[2]/span/text()&apos;)[0].strip()</div><div class="line">        try:</div><div class="line">            item[7] = one.xpath(&apos;div[2]/span[2]/text()&apos;)[0].strip()</div><div class="line">        except:</div><div class="line">            item[7] = u&apos;0&apos;</div><div class="line">        try:</div><div class="line">            item[8] = one.xpath(&apos;div[2]/a[1]/text()&apos;)[0]</div><div class="line">        except:</div><div class="line">            item[8] = u&apos;&apos;</div><div class="line">        flag += 1</div><div class="line">        row = [item[i] for i in range(1, 9)]</div></pre></td></tr></table></figure></p>
-<p>1-8分别对应之前提到的</p>
-<blockquote>
-<p>标题，作者，发表时间，阅读量，评论数，点赞数，打赏数，所投专题</p>
-</blockquote>
-<h3 id="网页加载方式及分页问题"><a href="#网页加载方式及分页问题" class="headerlink" title="网页加载方式及分页问题"></a>网页加载方式及分页问题</h3><p>我们在首页滑动鼠标会发现，信息越来越多，但是还有一点就是可以看到URL并没有发生变化，所以其他页面的信息就是异步加载了，那么接着就要去抓包了</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-14a467cae824da63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加载更多"><br>通过滑动鼠标，一段时间后我们可以看到，这个连接，但其实它已经请求了很多页面了</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-3995563825f0b971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="page=2"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-fb3619db2f569bb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="page=3"><br>这个时候我们看到，其实有两个异步请求，已经悄悄在页面中填充了数据<br>那么我们点击<strong>阅读更多</strong>又会有什么变化呢？</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-9c449a89ca0ff351.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="page=4"><br>那么我们是不是可以通过，改变页码（page）去完成分页呢？因为首页和七日热门比较类似，按照我之前爬取七日热门的思路去抓取（<a href="http://www.jianshu.com/p/c550e675fd0b" target="_blank" rel="external">spiders——简书7日热门（scrapy）</a>），但是显然精简过得URL不能抓取首页的信息，那么没办法就只能把全部的参数都怼进去试试了，首先我们来看一下除了<strong>page</strong>这个参数之外，<strong>seen_snote_ids[]</strong>参数应该在那找</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-0773a55d44e66063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第一页"><br>我们看到第一页并没有带参数， 我们再去看一下第二页的请求信息</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-daa41eb768b47d85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第二页请求信息"><br>有很多id，那么我们应该去哪找呢，我们先去看一下第一页的源码</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-787480f652b08fe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第一页源码信息"><br>看到这些数字，是不是和第二页的参数有关系呢，经过对比确实和第二页的参数id一致，有了头绪我们再去看一下第三页的（进一步确定携带的参数）</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-5a4e02c881b5fa3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第三页参数"><br>经过分析，我们很巧的发现第三页的参数是40个第二页是20个，第一个0个，并且，第二页的id参数，我们可以在第一页源码中拿到，那第三页的是不是也可以在第二页中看到呢？，我们去看一下第二页源码</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-dc6bc668734c7d86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="可能存在id"><br>因为网页就是直接加载的，我们大概确定一下第二页的位置，然后对比去对比第三页的部分参数信息</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-158428bf117468e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第三页部分参数"><br>大家如果仔细去对比是可以发现，确实第三页的参数包含了第一个页面和第二个页面中的id信息。<br>现在差不多我们对这个网页的加载方式，以及分页方式有了进一步的理解，就是之后的每一页除了<strong>page</strong>参数改变之外，携带的<strong>seen_snote_ids[]</strong>是上（几）页的所有id参数，那么这个到底有多少页呢，我真的去不断点击加载最终，page参数停留在了15页（seen_snote_ids[]的数量看更是非常大），并且也没有出现<strong>阅读更多</strong>字样，我们来看一下</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-9c19cf9b4c0510ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第十五页"><br>我们可以看到请求的URL的长度，参数一直在增加，所以我暂且就认为i这个是15页，下边给一下获取id以及分页URL的构造示例代码：<br><strong>1.获取id</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">html = requests.get(url,headers = self.headers,cookies = self.cookies).text</div><div class="line">response = etree.HTML(html)</div><div class="line">ids = response.xpath(&apos;//*[@id=&quot;list-container&quot;]/ul/li&apos;)</div><div class="line">for one in ids:</div><div class="line">    one = &apos;seen_snote_ids[]=&apos; + one.xpath(&apos;@data-note-id&apos;)[0]</div></pre></td></tr></table></figure></p>
-<p><strong>2.构造页码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def totalPage(self):</div><div class="line">    for i in range(1,16):</div><div class="line">        data = &apos;&amp;&apos;.join(self.params)</div><div class="line">        url = &apos;http://www.jianshu.com/?&apos; + data + &apos;&amp;page=&#123;&#125;&apos;.format(i)</div><div class="line">        self.getData(url)</div></pre></td></tr></table></figure></p>
-<h3 id="遇到的问题-样例源码"><a href="#遇到的问题-样例源码" class="headerlink" title="遇到的问题+样例源码"></a>遇到的问题+样例源码</h3><p><strong>1.遇到的问题</strong><br>之前按照我简书七日热门的思路去写，最后获取到的都是重复数据，并且在添加id之后也是重复数据，<a href="http://www.jianshu.com/u/9104ebf5e177" target="_blank" rel="external">罗罗攀</a> 给我看了<a href="http://www.jianshu.com/u/54b5900965ea" target="_blank" rel="external">向右奔跑</a>老大之前关于首页分析的文章，看了之后和我的对比，感觉差不多，但是我就是出不来数据，之后各位老哥们就说可能是参数不够吧，<a href="http://www.jianshu.com/u/94bbc48171c7" target="_blank" rel="external">LEONYao</a>老哥还说可以把参数都怼进去，满状态轰炸，<a href="http://www.jianshu.com/u/54b5900965ea" target="_blank" rel="external">向右奔跑</a>老大之后说带个cookies可行，测试之后真的可行（一个小小的cookies困扰了很长时间，没想起来带cookies）<br><strong>2.示例代码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line"></div><div class="line">from lxml import etree</div><div class="line">import requests</div><div class="line">import re</div><div class="line">from Class.store_csv import CSV</div><div class="line"></div><div class="line">class Spider(object):</div><div class="line"></div><div class="line">    headers = &#123;</div><div class="line">        &quot;user-agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36&quot;</div><div class="line">    &#125;</div><div class="line">    cookies = &#123;</div><div class="line">        &apos;UM_distinctid&apos;: &apos;15ac11bdff316-0ce09a4511f531-67f1a39-100200-15ac11bdff447d&apos;,</div><div class="line">        &apos;CNZZDATA1258679142&apos;: &apos;1034687255-1492307094-%7C1493259066&apos;,</div><div class="line">        &apos;remember_user_token&apos;: &apos;W1s1MjA4MDY0XSwiJDJhJDEwJFVWVjUwbXBsS1hldkc1d0l3UG5DSmUiLCIxNDk0ODkyNTg0LjczNDM2ODgiXQ%3D%3D--f04b34c274980b45e5f7ee17c2686aeb4b567197&apos;,</div><div class="line">        &apos;_gat&apos;: &apos;1&apos;,</div><div class="line">        &apos;_session_id&apos;: &apos;N0tvclN3V09wZ25UNFloZ0NrRTBVT3ZYQUR5VkRlV1c2Tno1bnNZc3dmQm9kQ3hmOGY4a0dFUlVLMDdPYWZJdCsydGJMaENZVU1XSHdZMHozblNhUERqaldYTHNWYXVPd2tISHVCeWJtbUFwMjJxQ3lyU2NZaTNoVUZsblV4Si94N2hRRC94MkJkUjhGNkNCYm1zVmM0R0ZqR2hFSFltZnhEcXVLbG54SlNSQU5lR0dtZ2MxOWlyYWVBMVl1a1lMVkFTYS8yQVF3bGFiR2hMblcweTU5cnR5ZTluTGlZdnFKbUdFWUYzcm9sZFZLOGduWFdnUU9yN3I0OTNZbWMxQ2UvbU5aQnByQmVoMFNjR1NmaDJJSXF6WHBYQXpPQnBVRVJnaVZVQ2xUR1p4MXNUaDhQSE80N1paLzg0amlBdjRxMU15a0JORlB1YXJ4V2g0b3hYZXpjR1NkSHVVdnA2RkgvVkJmdkJzdTg5ODhnUVRCSnN2cnlwRVJvWWc4N0lZMWhCMWNSMktMMWNERktycE0wcHFhTnYyK3ZoSWFSUFQzbkVyMDlXd2d5bz0tLThrdXQ2cFdRTTNaYXFRZm5RNWtYZUE9PQ%3D%3D--bc52e90a4f1d720f4766a5894866b3764c0482dd&apos;,</div><div class="line">        &apos;_ga&apos;: &apos;GA1.2.1781682389.1492310343&apos;,</div><div class="line">        &apos;_gid&apos;: &apos;GA1.2.163793537.1495583991&apos;,</div><div class="line">        &apos;Hm_lvt_0c0e9d9b1e7d617b3e6842e85b9fb068&apos;: &apos;1495360310,1495416048,1495516194,1495583956&apos;,</div><div class="line">        &apos;Hm_lpvt_0c0e9d9b1e7d617b3e6842e85b9fb068&apos;: &apos;1495583991&apos;</div><div class="line">    &#125;</div><div class="line">    params = []</div><div class="line">    def __init__(self):</div><div class="line">        field = [&apos;标题&apos;, &apos;作者&apos;, &apos;发表时间&apos;, &apos;阅读量&apos;, &apos;评论数&apos;, &apos;点赞数&apos;, &apos;打赏数&apos;, &apos;所投专题&apos;]</div><div class="line">        self.write = CSV(&apos;main.csv&apos;, field)</div><div class="line">    def totalPage(self):</div><div class="line">        for i in range(1,16):</div><div class="line">            data = &apos;&amp;&apos;.join(self.params)</div><div class="line">            url = &apos;http://www.jianshu.com/?&apos; + data + &apos;&amp;page=&#123;&#125;&apos;.format(i)</div><div class="line">            self.getData(url)</div><div class="line">    def getData(self,url):</div><div class="line">        print url</div><div class="line">        html = requests.get(url,headers = self.headers,cookies = self.cookies).text</div><div class="line">        response = etree.HTML(html)</div><div class="line">        ids = response.xpath(&apos;//*[@id=&quot;list-container&quot;]/ul/li&apos;)</div><div class="line">        for one in ids:</div><div class="line">            one = &apos;seen_snote_ids[]=&apos; + one.xpath(&apos;@data-note-id&apos;)[0]</div><div class="line">            self.params.append(one)</div><div class="line">        item = &#123;&#125;</div><div class="line">        flag = 0</div><div class="line">        read = re.findall(r&apos;ic-list-read&quot;&gt;&lt;/i&gt; (\d+)&apos;, html)</div><div class="line">        comment = re.findall(r&apos;ic-list-comments&quot;&gt;&lt;/i&gt; (\d+)&apos;, html)</div><div class="line">        result = response.xpath(&apos;//*[@id=&quot;list-container&quot;]/ul/li/div&apos;)</div><div class="line">        for one in result:</div><div class="line">            item[1] = one.xpath(&apos;a/text()&apos;)[0]</div><div class="line">            item[2] = one.xpath(&apos;div[1]/div/a/text()&apos;)[0]</div><div class="line">            item[3] = one.xpath(&apos;div[1]/div/span/@data-shared-at&apos;)[0]</div><div class="line">            item[4] = read[flag]</div><div class="line">            try:</div><div class="line">                item[5] = comment[flag]</div><div class="line">            except:</div><div class="line">                item[5] = u&apos;&apos;</div><div class="line">            item[6] = one.xpath(&apos;div[2]/span/text()&apos;)[0].strip()</div><div class="line">            try:</div><div class="line">                item[7] = one.xpath(&apos;div[2]/span[2]/text()&apos;)[0].strip()</div><div class="line">            except:</div><div class="line">                item[7] = u&apos;0&apos;</div><div class="line">            try:</div><div class="line">                item[8] = one.xpath(&apos;div[2]/a[1]/text()&apos;)[0]</div><div class="line">            except:</div><div class="line">                item[8] = u&apos;&apos;</div><div class="line">            flag += 1</div><div class="line">            row = [item[i] for i in range(1, 9)]</div><div class="line">            self.write.writeRow(row)</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line">    jian = Spider()</div><div class="line">    jian.totalPage()</div></pre></td></tr></table></figure></p>
-<h3 id="结果截图"><a href="#结果截图" class="headerlink" title="结果截图"></a>结果截图</h3><p><img src="http://upload-images.jianshu.io/upload_images/5208064-aacfdeb13644b804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="信息详情"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>现在想来，在爬取网站时，我们可以携带尽可能全的参数（俗话说，礼多人不怪），避免遇到我这个错误，scrapy版本正在写，有兴趣的可以私聊参考源码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/5208064-3e521f5711ce6c11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-      <category term="Python爬虫" scheme="https://sincerely90.github.io/categories/Python%E7%88%AC%E8%99%AB/"/>
-    
-    
-      <category term="Python" scheme="https://sincerely90.github.io/tags/Python/"/>
-    
-      <category term="requests" scheme="https://sincerely90.github.io/tags/requests/"/>
-    
-      <category term="scrapy" scheme="https://sincerely90.github.io/tags/scrapy/"/>
-    
-  </entry>
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liang</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
   
-  <entry>
-    <title>Python版万年历</title>
-    <link href="https://sincerely90.github.io/2017/06/15/%E4%B8%87%E5%B9%B4%E5%8E%86/"/>
-    <id>https://sincerely90.github.io/2017/06/15/万年历/</id>
-    <published>2017-06-15T09:35:11.652Z</published>
-    <updated>2017-06-15T13:21:28.003Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/5208064-6ad194cdcc5689df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017年五月份日历"></p>
-<p>万年历这个题目几乎是不论学哪种编程语言必要尝试的一个小知识，综合了循环，逻辑关系判断等各编程语言的基础知识。今天我们一起用Python实现简单的万年历功能（查看某年各个月份日历和查看确定月份日历）。<br>网上大概浏览了一部分代码，发现实现方法都是大同小异，本篇文章代码可能会略有不同，可供参考。<br>记得之前在学C语言的时候就去写过万年历，现在已经忘得一干二净了，用Python实现万年历主要参考了两篇文章，第一篇是<a href="http://www.jianshu.com/u/54b5900965ea" target="_blank" rel="external">向右奔跑</a>老大之前写的<a href="http://blog.163.com/ppy2790@126/blog/static/103242241201092925243311/" target="_blank" rel="external">java版万年历</a>,还有一篇是在网上找的<a href="http://blog.csdn.net/softwareldu/article/details/40475497" target="_blank" rel="external">C语言实现万年历</a>,大家也可以去参考这两篇文章的方法。</p>
-<h3 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h3><p>万年历实现的难点自我感觉有以下几个：</p>
-<ul>
-<li>1.计算某年一月一日为周几</li>
-<li>2.计算某年确定月份的第一天为周几 </li>
-<li>3.整个日历格式的设定（调试是真的烦）</li>
-</ul>
-<h3 id="万年历实现"><a href="#万年历实现" class="headerlink" title="万年历实现"></a>万年历实现</h3><p><strong>1.计算某年一月一日为周几</strong><br>这里我看到网上大部分都是写的1990年一月一日为周一这个点进行判断计算其他年份的一月一日，或者是确定月份的第一天。还有一种是计算从1——年份-1这一段时间的总天数，然后+1除以7去计算得到该年份的一月一日或者是确定月份的第一天为周几（这个应该是一种计算问题，具体更多实现方法可以自己去查），这里我采用的是计算从1——该年的上一年的总天数+1，计算该年份的一月一日的周几。<br><strong>2.计算某年确定月份的第一天为周几 </strong><br>同样的道理，计算总天数之后加上今年已经过去的月份的总天数再加1除以7取余得到<br><strong>3.格式问题</strong><br>这个没办法，只能自己去调试，调整到一个合适的输出格式即可</p>
-<p><strong>文字表述可能不清楚，可以参考代码+注释</strong></p>
-<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"># -*-coding:utf-8 -*-</div><div class="line"># @name ：Python万年历</div><div class="line"># @author ：loading_miracle</div><div class="line"></div><div class="line">class Calendar(object):</div><div class="line"></div><div class="line">    days = [31,28,31,30,31,30,31,31,30,31,30,31]</div><div class="line">    def __init__(self, year=2017):#初始化默认2017年</div><div class="line">        self.year = year</div><div class="line">        if self.yearDays(year) == 366:</div><div class="line">            self.days[1] = 29</div><div class="line">        self.totalDays = 0</div><div class="line">        for i in range(1, self.year):</div><div class="line">            self.totalDays += self.yearDays(i)</div><div class="line">    #判断每年的天数</div><div class="line">    def yearDays(self,year):</div><div class="line">        return 366 if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0 else 365</div><div class="line">    # 查看某个月的日历</div><div class="line">    def months(self,month):</div><div class="line">        totalDays = self.totalDays</div><div class="line">        for i in range(1,month):</div><div class="line">            totalDays+=self.days[i-1]</div><div class="line">        #计算确定月份的第一天为周几</div><div class="line">        self.week = (totalDays+1) % 7</div><div class="line">        self.show(month)</div><div class="line">    #查看全年日历</div><div class="line">    def wholeYear(self):</div><div class="line">        # 计算确定年份的一月一日为周几</div><div class="line">        self.week = (self.totalDays+1) % 7</div><div class="line">        for i in range(1,13):</div><div class="line">            self.show(i)</div><div class="line">    #显示输出函数</div><div class="line">    def show(self,month):</div><div class="line">        print &apos;\t\t&#123;&#125;年&#123;&#125;月份日历&apos;.format(self.year,month)</div><div class="line">        print &apos;Sun  Mon  Tues  Web  Thur  Fri  Sat&apos;</div><div class="line">        print &apos;-----------------------------------------&apos;</div><div class="line">        begin = 1</div><div class="line">        for j in range(0, self.week):</div><div class="line">            print &apos;%4s&apos; % &apos;&apos;,</div><div class="line">        while begin &lt;= self.days[month - 1]:</div><div class="line">            print &apos;%4d&apos; % begin,</div><div class="line">            begin += 1</div><div class="line">            self.week = (self.week + 1) % 7</div><div class="line">            if self.week % 7 == 0:</div><div class="line">                print</div><div class="line">        print &apos;\n\n&apos;</div><div class="line"></div><div class="line">if __name__ == &quot;__main__&quot;:</div><div class="line"></div><div class="line">    data = Calendar()</div><div class="line">    data.wholeYear()</div><div class="line">    data.months(5)</div></pre></td></tr></table></figure>
-<h3 id="效果截图"><a href="#效果截图" class="headerlink" title="效果截图"></a>效果截图</h3><p><img src="http://upload-images.jianshu.io/upload_images/5208064-86c602d55f2032f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="样例图"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/5208064-6ad194cdcc5689df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; 
-    
-    </summary>
-    
-      <category term="Python编程练习" scheme="https://sincerely90.github.io/categories/Python%E7%BC%96%E7%A8%8B%E7%BB%83%E4%B9%A0/"/>
-    
-    
-      <category term="Python" scheme="https://sincerely90.github.io/tags/Python/"/>
-    
-      <category term="基础编程" scheme="https://sincerely90.github.io/tags/%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
   
-  <entry>
-    <title>Python爬虫—简书七日热门（scrapy）</title>
-    <link href="https://sincerely90.github.io/2017/06/14/Python%E7%88%AC%E8%99%AB%E2%80%94%E7%AE%80%E4%B9%A6%E4%B8%83%E6%97%A5%E7%83%AD%E9%97%A8%EF%BC%88scrapy%EF%BC%89/"/>
-    <id>https://sincerely90.github.io/2017/06/14/Python爬虫—简书七日热门（scrapy）/</id>
-    <published>2017-06-14T08:37:07.605Z</published>
-    <updated>2017-06-15T12:49:51.324Z</updated>
-    
-    <content type="html"><![CDATA[<p>简书七日热门的数据，主要爬取了以下几个字段：</p>
-<ul>
-<li>1.用户<br>2.标题<br>3.阅读量<br>4.评论量<br>5.获赞量<br>6.打赏数<br>7.文章发表时间<br>8.被哪些专题收录</li>
-</ul>
-<p><strong> 首先我们可以先看一下我们要获取字段的位置 </strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-09a0c9d0e262d802.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br><em>框中的其他数据都可以通过xpath获取到，标注箭头的为我在当前页面通过xpath获取不到的或者出现问题的，不过别着急，二级页面中包含我们想要的所有数据。</em></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-3148cf54be37eb91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br><em> 从这个页面我们可以看到，在第一级页面中的数据，在这一页都可以看到，但我们只选取我们想要的字段,箭头指向的为上一级页面中通过xpath获取出现问题的字段，在当前页面获取同样出现了问题，所以果断采用正则在源码中获取</em></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-20e51a326b6ee30d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br><em>我们可以看到在源码中可以看到这些字段,那么就可以通过正则来匹配相应的字段</em><br><strong>我们可以看一下这一篇文章被哪些专题收录，在文章的最下边</strong></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-200b2150db16cfdc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>现在我们整明白了所有字段的位置，接下来就开始去抓取这些字段，首先我们先分析页面的分页问题，通过观察发现页面是动态加载的，再点击更多后会请求新的数据，我们来看一下整个页面的url规则，以及获取被收录专题的数据的url规则，我这里简单列一下一些截图，具体可以参考<a href="http://www.jianshu.com/u/9104ebf5e177" target="_blank" rel="external">罗罗攀</a>的<a href="http://www.jianshu.com/p/da54149a0944" target="_blank" rel="external">Python爬虫之简书七日热门数据爬取（异步加载详解）</a>，写的特别详细。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-76eb0953388caff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-7d512c0ff24bc711.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br><em>通过这些字段我们可以想到一种构造url的方法</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def start_requests(self):</div><div class="line">        for a in range(1,6):</div><div class="line">            self.url = &apos;http://www.jianshu.com/trending/weekly?&amp;page=%s&apos; %a</div><div class="line">            yield scrapy.Request(self.url,self.parse)</div></pre></td></tr></table></figure></p>
-<p>我们再来看一下被收录专题的url规则</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-24c6254d3a3973ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-f24e40813e608920.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-95a9795f83a0df1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/5208064-7f46dc36aef1ca7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><em>从这两张图可以看出，URL主要变化点在id和和page，<strong>ID</strong>可以从第三张图片中通过正则从源码获取从最后一张图可以看出收录的专题数有<strong>5页</strong>专题名都存在<strong>title</strong>中所以我们就可以通过第一条URL获取总页数，然后构造其他的url。<br>构造方法如下：</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">id = re.findall(&apos;&#123;&quot;id&quot;:(.*?),&apos;, response.text, re.S)[0]</div><div class="line">url = &apos;http://www.jianshu.com/notes/%s/included_collections?page=1&apos; %id</div><div class="line">datas = []</div><div class="line">result = requests.get(url)</div><div class="line">data = json.loads(result.text)</div><div class="line">for one in data[&apos;collections&apos;]:</div><div class="line">    datas.append(one[&apos;title&apos;])</div><div class="line">count = data[&apos;total_pages&apos;]</div><div class="line">for one in range(2,count+1):</div><div class="line">    url = &apos;http://www.jianshu.com/notes/&#123;&#125;/included_collections?page=&#123;&#125;&apos;.format(id,one)</div><div class="line">    result = requests.get(url)</div><div class="line">    data = json.loads(result.text)</div><div class="line">    for one in data[&apos;collections&apos;]:</div><div class="line">        datas.append(one[&apos;title&apos;])</div></pre></td></tr></table></figure></p>
-<p><strong>通过以上方法可以成功的找到页面和数据，接下来一个很重要的问题，怎们在多级页面中统一数据，因为我们所有的数据是集中在两个页面是实现的，那么怎样才可以实现多级页面传递数据呢？</strong><br>完成多级页面传递参数主要是通过<strong>meta</strong>这个属性，具体传递方法可以参照<a href="http://www.jianshu.com/u/54b5900965ea" target="_blank" rel="external">向右奔跑</a>老大的<a href="http://www.jianshu.com/p/de61ed0f961d" target="_blank" rel="external">Scrapy抓取在不同级别Request之间传递参数</a>，这篇文章有很详细的介绍。<br>在这个地方遇到的一个坑：多级页面传递后，发现总是存的是重复的内容，在这里一定要注意，因为肯定是使用for循环去获取相关标题的URL然后进入子页面去获取其他相关字段的信息，但是如果在这个地方定义了item，然后在多级传递参数，就可能出现重复的情况，所以就采用了在第一级页面获取到的数据先用变量存储，通过meta这个属性标签带入二级页面，可以看一下处理代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">for one in result:</div><div class="line">    user = one.xpath(&apos;div[1]/div/a/text()&apos;).extract()[0]</div><div class="line">    title = one.xpath(&apos;a/text()&apos;).extract()[0]</div><div class="line">    zan = one.xpath(&apos;div[2]/span[1]/text()&apos;).extract()[0]</div><div class="line">    try:</div><div class="line">        shang = one.xpath(&apos;div[2]/span[2]/text()&apos;).extract()[0]</div><div class="line">    except:</div><div class="line">        shang = u&apos;0&apos;</div><div class="line">    publish = one.xpath(&apos;div[1]/div/span/@data-shared-at&apos;).extract()[0]</div><div class="line">    link = one.xpath(&apos;a/@href&apos;).extract()[0]</div><div class="line">    url = urljoin_rfc(base_url,link)</div><div class="line">    yield scrapy.Request(url,meta=&#123;&apos;user&apos;:user,&apos;title&apos;:title,</div><div class="line">                                        &apos;zan&apos;:zan,&apos;shang&apos;:shang,&apos;publish&apos;:publish&#125;,callback=self.parse_type)</div></pre></td></tr></table></figure></p>
-<p><strong>通过上边的简单介绍，应该对整个流程和规则有了一定的了解，下边直接上代码</strong></p>
-<h2 id="1-item-py"><a href="#1-item-py" class="headerlink" title="1.item.py"></a>1.item.py</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">import scrapy</div><div class="line">class JianshuItem(scrapy.Item):</div><div class="line">    # define the fields for your item here like:</div><div class="line">    # name = scrapy.Field()</div><div class="line">    user = scrapy.Field() #用户</div><div class="line">    title = scrapy.Field() #标题</div><div class="line">    count_read = scrapy.Field() #阅读量</div><div class="line">    ping = scrapy.Field() #评论量</div><div class="line">    count_zan = scrapy.Field() #喜欢</div><div class="line">    shang = scrapy.Field()  #赞赏</div><div class="line">    publish = scrapy.Field() #时间</div><div class="line">    sp_title = scrapy.Field() #被专题书录</div></pre></td></tr></table></figure>
-<p>##2.jianshuSpider.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">#-*- coding:utf-8 -*-</div><div class="line">import scrapy</div><div class="line">from ..items import JianshuItem</div><div class="line">from scrapy.utils.url import urljoin_rfc</div><div class="line">import requests</div><div class="line">import re</div><div class="line">import json</div><div class="line">class jianshuSpider(scrapy.Spider):</div><div class="line">    name = &apos;jianshu&apos;</div><div class="line">    def start_requests(self):</div><div class="line">        for a in range(1,6):</div><div class="line">            self.url = &apos;http://www.jianshu.com/trending/weekly?&amp;page=%s&apos; %a</div><div class="line">            yield scrapy.Request(self.url,self.parse)</div><div class="line">    def parse(self, response):</div><div class="line">        result = response.xpath(&apos;/html/body/div[1]/div/div[1]/div/ul/li/div&apos;)</div><div class="line">        base_url = &apos;http://www.jianshu.com&apos;</div><div class="line">        for one in result:</div><div class="line">            user = one.xpath(&apos;div[1]/div/a/text()&apos;).extract()[0]</div><div class="line">            title = one.xpath(&apos;a/text()&apos;).extract()[0]</div><div class="line">            zan = one.xpath(&apos;div[2]/span[1]/text()&apos;).extract()[0]</div><div class="line">            try:</div><div class="line">                shang = one.xpath(&apos;div[2]/span[2]/text()&apos;).extract()[0]</div><div class="line">            except:</div><div class="line">                shang = u&apos;0&apos;</div><div class="line">            publish = one.xpath(&apos;div[1]/div/span/@data-shared-at&apos;).extract()[0]</div><div class="line">            link = one.xpath(&apos;a/@href&apos;).extract()[0]</div><div class="line">            url = urljoin_rfc(base_url,link)</div><div class="line">            yield scrapy.Request(url,meta=&#123;&apos;user&apos;:user,&apos;title&apos;:title,</div><div class="line">                                                &apos;zan&apos;:zan,&apos;shang&apos;:shang,&apos;publish&apos;:publish&#125;,callback=self.parse_type)</div><div class="line">    def parse_type(self,response):</div><div class="line">        item = JianshuItem()</div><div class="line">        item[&apos;user&apos;] = response.meta[&apos;user&apos;]</div><div class="line">        item[&apos;title&apos;] = response.meta[&apos;title&apos;]</div><div class="line">        item[&apos;count_read&apos;] = re.findall(&apos;&quot;views_count&quot;:(.*?),&apos;,response.text,re.S)[0]</div><div class="line">        item[&apos;ping&apos;] = re.findall(&apos;&quot;comments_count&quot;:(.*?),&apos;,response.text,re.S)[0]</div><div class="line">        item[&apos;count_zan&apos;] = response.meta[&apos;zan&apos;]</div><div class="line">        item[&apos;shang&apos;] = response.meta[&apos;shang&apos;]</div><div class="line">        item[&apos;publish&apos;] = response.meta[&apos;publish&apos;]</div><div class="line">        id = re.findall(&apos;&#123;&quot;id&quot;:(.*?),&apos;, response.text, re.S)[0]</div><div class="line">        url = &apos;http://www.jianshu.com/notes/%s/included_collections?page=1&apos; %id</div><div class="line">        datas = []</div><div class="line">        result = requests.get(url)</div><div class="line">        data = json.loads(result.text)</div><div class="line">        for one in data[&apos;collections&apos;]:</div><div class="line">            datas.append(one[&apos;title&apos;])</div><div class="line">        count = data[&apos;total_pages&apos;]</div><div class="line">        for one in range(2,count+1):</div><div class="line">            url = &apos;http://www.jianshu.com/notes/&#123;&#125;/included_collections?page=&#123;&#125;&apos;.format(id,one)</div><div class="line">            result = requests.get(url)</div><div class="line">            data = json.loads(result.text)</div><div class="line">            for one in data[&apos;collections&apos;]:</div><div class="line">                datas.append(one[&apos;title&apos;])</div><div class="line">        try:</div><div class="line">            item[&apos;sp_title&apos;] = &quot; &quot;.join(datas).encode(&apos;utf-8&apos;)</div><div class="line">        except:</div><div class="line">            item[&apos;sp_title&apos;] = u&apos;&apos;</div><div class="line">        yield item</div></pre></td></tr></table></figure></p>
-<h2 id="3-结果"><a href="#3-结果" class="headerlink" title="3.结果"></a>3.结果</h2><p><img src="http://upload-images.jianshu.io/upload_images/5208064-b3efbae7e3b18775.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>先说一下存在的问题：<br>在对一个页面进行爬取的时候没做一个整体的考虑，所以在不同页面之前传递的参数比较多，代码看起来有点乱，之后可以将所有的数据全部在二级页面获取。<br>还有一点，可以看到在处理json数据那一块，我选择使用了requests库去操作，这是因为如果使用scrapy.Request去操作的话，要通过回调函数去处理，还要在进行参数的传递，造成很多麻烦，然后准备尝试去写一个用requests和beautifulsoup爬虫，进行一个对比。<br><strong>写的第一篇关于思想和技术方面的文章，由于时间的关系所以可能解释的不是很详细，如果存在问题可以在下方评论一起探讨。<br>最后还是要感谢一下<a href="http://www.jianshu.com/u/9104ebf5e177" target="_blank" rel="external">罗罗攀</a>和<a href="http://www.jianshu.com/u/54b5900965ea" target="_blank" rel="external">向右奔跑</a>的相关文章和<a href="http://www.jianshu.com/u/9104ebf5e177" target="_blank" rel="external">罗罗攀</a>大哥无私的帮助，如果有时间的话会对数据进一步处理，做一个相关分析。</strong></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;简书七日热门的数据，主要爬取了以下几个字段：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1.用户&lt;br&gt;2.标题&lt;br&gt;3.阅读量&lt;br&gt;4.评论量&lt;br&gt;5.获赞量&lt;br&gt;6.打赏数&lt;br&gt;7.文章发表时间&lt;br&gt;8.被哪些专题收录&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt; 首先我们
-    
-    </summary>
-    
-      <category term="Python爬虫" scheme="https://sincerely90.github.io/categories/Python%E7%88%AC%E8%99%AB/"/>
-    
-    
-      <category term="Python" scheme="https://sincerely90.github.io/tags/Python/"/>
-    
-      <category term="requests" scheme="https://sincerely90.github.io/tags/requests/"/>
-    
-      <category term="scrapy" scheme="https://sincerely90.github.io/tags/scrapy/"/>
-    
-  </entry>
+
   
-  <entry>
-    <title>Hello World</title>
-    <link href="https://sincerely90.github.io/2017/06/13/hello-world/"/>
-    <id>https://sincerely90.github.io/2017/06/13/hello-world/</id>
-    <published>2017-06-13T03:06:24.221Z</published>
-    <updated>2017-06-13T03:06:24.221Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
   
-</feed>
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "95baacca46004733afb6768f822f743e",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
